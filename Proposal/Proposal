@@ -10,7 +10,12 @@ TODO
 
 ## In a paragraph or more, detail your project. What will your software do? What features will it have? How will it be executed?
 
-TODO
+Our project is a website that contains 3 minigames which all relate to cats! For our first game, which is called ‘Catch the Cat’, our 
+software will contain a sprite which will bounce off of the walls of your screen. Our second game, ‘Hurdle Jumping’, will also use 
+a sprite to animate a cat jumping over a snake. Our final game, ‘Remember the Cat’, will be a memory based game where you have to 
+match the cards together and memorize their spots in order to win. The home page of our websites will have buttons that will lead to the 
+3 games. This will be excited through VS Code and Github
+
 
 ## If planning to combine 1051's final project with another course's final project, with which other course? And which aspect(s) of your proposed project would relate to 1051, and which aspect(s) would relate to the other course?
 N/A
