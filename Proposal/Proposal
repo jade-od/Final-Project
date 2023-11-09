@@ -29,6 +29,7 @@ What we will accomplish no matter what is the 'Catch the Cat' game and the 'Home
 For this project, we will need to learn the basics of pygames. We will need to learn how to handle user input through events, keyboard and mouse interactions, as well as 
 initializing the game and coding a continuous loop to keep the game updating as the user plays it. We will also have to learn how to display images, upload sprites, and 
 control the game's frame rate. 
+A better outcome for our project would be to complete one game with sprites, and a home page that allows you to pick the game and choose the name of your character.
 
 ### In a sentence (or list of features), define a BEST outcome for your final project. I.e., what do you HOPE to accomplish before the final project's deadline?
 
