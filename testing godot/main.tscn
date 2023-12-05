@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2aem5fp5w7n8"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_j3gir"]
+[ext_resource type="Texture2D" uid="uid://clju1qxnho6o6" path="res://pictures /bg/Screenshot 2023-11-27 at 10.49.55 AM.png" id="2_ocas4"]
+[ext_resource type="Texture2D" uid="uid://cqfuvjmfogcdd" path="res://pictures /title name/with cat.png" id="3_qo4ij"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_j3gir")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Screenshot2023-11-27At10_49_55Am" type="Sprite2D" parent="."]
+position = Vector2(574.25, 321.25)
+scale = Vector2(0.482262, 0.546405)
+texture = ExtResource("2_ocas4")
+
+[node name="WithCat" type="Sprite2D" parent="."]
+position = Vector2(592, 192)
+scale = Vector2(5.64, 4.34286)
+texture = ExtResource("3_qo4ij")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 426.0
+offset_top = 285.0
+offset_right = 716.0
+offset_bottom = 420.0
+text = "PLAY"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 424.0
+offset_top = 459.0
+offset_right = 714.0
+offset_bottom = 594.0
+text = "LEAVE"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

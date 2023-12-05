@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://d25p0yluqo0w4"]
+
+[ext_resource type="Script" path="res://pick_cat.gd" id="1_e5ckt"]
+[ext_resource type="Texture2D" uid="uid://clju1qxnho6o6" path="res://pictures /bg/Screenshot 2023-11-27 at 10.49.55 AM.png" id="1_hdli6"]
+[ext_resource type="Texture2D" uid="uid://df1nwlp2nmc58" path="res://pictures /cats/black.png" id="2_72m48"]
+[ext_resource type="Texture2D" uid="uid://chfn4tymsiwmi" path="res://pictures /cats/grey.png" id="3_i216v"]
+[ext_resource type="Texture2D" uid="uid://cx6j16jf8hidy" path="res://pictures /cats/orange.png" id="4_dlleq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsurl"]
+atlas = ExtResource("2_72m48")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miyp6"]
+atlas = ExtResource("3_i216v")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccwex"]
+atlas = ExtResource("4_dlleq")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k5kqj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsurl")
+}],
+"loop": true,
+"name": &"blackcat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_miyp6")
+}],
+"loop": true,
+"name": &"greycat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccwex")
+}],
+"loop": true,
+"name": &"orangecat",
+"speed": 5.0
+}]
+
+[node name="pick cat" type="Node2D"]
+script = ExtResource("1_e5ckt")
+
+[node name="Screenshot2023-11-27At10_49_55Am" type="Sprite2D" parent="."]
+position = Vector2(576.5, 322.5)
+scale = Vector2(0.480384, 0.544314)
+texture = ExtResource("1_hdli6")
+
+[node name="CatSelect" type="AnimatedSprite2D" parent="."]
+position = Vector2(580, 338)
+scale = Vector2(6.15505, 6.10304)
+sprite_frames = SubResource("SpriteFrames_k5kqj")
+animation = &"blackcat"
+
+[node name="Left" type="Button" parent="."]
+offset_left = 240.0
+offset_top = 281.0
+offset_right = 407.0
+offset_bottom = 364.0
+text = "Left"
+
+[node name="Right" type="Button" parent="."]
+offset_left = 721.0
+offset_top = 280.0
+offset_right = 888.0
+offset_bottom = 363.0
+text = "Right"
+
+[node name="Select" type="Button" parent="."]
+offset_left = 467.0
+offset_top = 407.0
+offset_right = 682.0
+offset_bottom = 482.0
+text = "Select"
+
+[connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="Select" to="." method="_on_select_pressed"]
