@@ -1,10 +1,58 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbhvqxifgyi3f"]
+[gd_scene load_steps=13 format=3 uid="uid://dbhvqxifgyi3f"]
 
-[ext_resource type="Texture2D" uid="uid://clju1qxnho6o6" path="res://pictures /bg/Screenshot 2023-11-27 at 10.49.55 AM.png" id="1_87ks5"]
+[ext_resource type="Texture2D" uid="uid://df1nwlp2nmc58" path="res://pictures /cats/black.png" id="1_5cek0"]
+[ext_resource type="Texture2D" uid="uid://chfn4tymsiwmi" path="res://pictures /cats/grey.png" id="2_52e1o"]
+[ext_resource type="Texture2D" uid="uid://cx6j16jf8hidy" path="res://pictures /cats/orange.png" id="3_2oyw4"]
+[ext_resource type="Texture2D" uid="uid://b383u2oonw5qf" path="res://pictures /yarn ball/pixilart-drawing (1).png" id="4_d61ty"]
+[ext_resource type="Texture2D" uid="uid://wm6gk3xmwdrb" path="res://pictures /card cover for matching game/pixilart-drawing (1) copy.png" id="5_iskso"]
+[ext_resource type="Script" path="res://TileMap.gd" id="6_lull2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x61e4"]
+texture = ExtResource("1_5cek0")
+texture_region_size = Vector2i(21, 19)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n5ds8"]
+texture = ExtResource("2_52e1o")
+texture_region_size = Vector2i(21, 19)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ddky"]
+texture = ExtResource("3_2oyw4")
+texture_region_size = Vector2i(21, 19)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4iwft"]
+texture = ExtResource("4_d61ty")
+0:1/0 = 0
+0:2/0 = 0
+1:1/0 = 0
+1:0/0 = 0
+2:1/0 = 0
+2:0/0 = 0
+0:0/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kl3op"]
+texture = ExtResource("5_iskso")
+texture_region_size = Vector2i(20, 20)
+0:0/next_alternative_id = 2
+0:0/0 = 0
+0:0/1 = 1
+
+[sub_resource type="TileSet" id="TileSet_jxbui"]
+sources/0 = SubResource("TileSetAtlasSource_x61e4")
+sources/1 = SubResource("TileSetAtlasSource_n5ds8")
+sources/2 = SubResource("TileSetAtlasSource_8ddky")
+sources/3 = SubResource("TileSetAtlasSource_4iwft")
+sources/5 = SubResource("TileSetAtlasSource_kl3op")
 
 [node name="Game 3" type="Node2D"]
 
-[node name="Screenshot2023-11-27At10_49_55Am" type="Sprite2D" parent="."]
+[node name="TileMap" type="TileMap" parent="."]
 position = Vector2(576, 324.5)
 scale = Vector2(0.481636, 0.542642)
-texture = ExtResource("1_87ks5")
+tile_set = SubResource("TileSet_jxbui")
+format = 2
+script = ExtResource("6_lull2")
