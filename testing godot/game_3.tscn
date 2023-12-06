@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://dbhvqxifgyi3f"]
+[gd_scene load_steps=2 format=3 uid="uid://dbhvqxifgyi3f"]
+
+[ext_resource type="Texture2D" uid="uid://clju1qxnho6o6" path="res://pictures /bg/Screenshot 2023-11-27 at 10.49.55 AM.png" id="1_87ks5"]
 
 [node name="Game 3" type="Node2D"]
+
+[node name="Screenshot2023-11-27At10_49_55Am" type="Sprite2D" parent="."]
+position = Vector2(576, 324.5)
+scale = Vector2(0.481636, 0.542642)
+texture = ExtResource("1_87ks5")
