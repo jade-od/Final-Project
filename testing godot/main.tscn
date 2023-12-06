@@ -18,6 +18,7 @@ scale = Vector2(0.482262, 0.546405)
 texture = ExtResource("2_ocas4")
 
 [node name="WithCat" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(592, 192)
 scale = Vector2(5.64, 4.34286)
 texture = ExtResource("3_qo4ij")

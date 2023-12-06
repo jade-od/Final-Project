@@ -54,10 +54,11 @@ scale = Vector2(0.480384, 0.544314)
 texture = ExtResource("1_hdli6")
 
 [node name="CatSelect" type="AnimatedSprite2D" parent="."]
-position = Vector2(580, 338)
-scale = Vector2(6.15505, 6.10304)
+texture_filter = 1
+position = Vector2(589, 339)
+scale = Vector2(8.79876, 8.44576)
 sprite_frames = SubResource("SpriteFrames_k5kqj")
-animation = &"blackcat"
+animation = &"orangecat"
 
 [node name="Left" type="Button" parent="."]
 offset_left = 240.0
