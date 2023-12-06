@@ -11,6 +11,13 @@ position = Vector2(585, 331)
 scale = Vector2(0.482471, 0.544314)
 texture = ExtResource("2_vdv26")
 
+[node name="Button" type="Button" parent="."]
+offset_left = 585.0
+offset_top = 331.0
+offset_right = 940.0
+offset_bottom = 416.0
+text = "Testing"
+
 [node name="Start" type="Button" parent="."]
 offset_left = 259.0
 offset_top = 548.0
