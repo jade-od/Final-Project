@@ -1,28 +1,66 @@
-[gd_scene load_steps=3 format=3 uid="uid://42g0ttkmy6td"]
+[gd_scene load_steps=5 format=3 uid="uid://42g0ttkmy6td"]
 
 [ext_resource type="Script" path="res://game_1.gd" id="1_j4r0l"]
 [ext_resource type="Texture2D" uid="uid://clju1qxnho6o6" path="res://pictures /bg/Screenshot 2023-11-27 at 10.49.55 AM.png" id="2_vdv26"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_us3aw"]
+size = Vector2(12, 490.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsnh0"]
+size = Vector2(840, 9)
 
 [node name="Game 1" type="Node2D"]
 script = ExtResource("1_j4r0l")
 
 [node name="Screenshot2023-11-27At10_49_55Am" type="Sprite2D" parent="."]
-position = Vector2(585, 331)
+position = Vector2(576, 328)
 scale = Vector2(0.482471, 0.544314)
 texture = ExtResource("2_vdv26")
 
 [node name="Start" type="Button" parent="."]
-offset_left = 259.0
-offset_top = 548.0
-offset_right = 436.0
-offset_bottom = 616.0
+offset_left = 192.0
+offset_top = 544.0
+offset_right = 369.0
+offset_bottom = 612.0
 text = "Start Game"
 
 [node name="Leave" type="Button" parent="."]
-offset_left = 679.0
-offset_top = 546.0
-offset_right = 856.0
-offset_bottom = 614.0
+offset_left = 784.0
+offset_top = 544.0
+offset_right = 961.0
+offset_bottom = 612.0
 text = "Leave Game"
+
+[node name="Game" type="ColorRect" parent="."]
+offset_left = 32.0
+offset_top = 56.0
+offset_right = 840.0
+offset_bottom = 512.0
+color = Color(0.282353, 0.6, 0.235294, 1)
+
+[node name="Tally" type="ColorRect" parent="."]
+offset_left = 904.0
+offset_top = 56.0
+offset_right = 1128.0
+offset_bottom = 512.0
+color = Color(0.490196, 0.564706, 1, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="left block" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(26, 288)
+shape = SubResource("RectangleShape2D_us3aw")
+
+[node name="right block" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(846, 286)
+shape = SubResource("RectangleShape2D_us3aw")
+
+[node name="top block" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(436, 51.5)
+shape = SubResource("RectangleShape2D_wsnh0")
+
+[node name="bottom block" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(434, 516)
+shape = SubResource("RectangleShape2D_wsnh0")
 
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
