@@ -1,0 +1,57 @@
+extends KinematicBody2D
+
+# Player variables
+var speed = 200
+var velocity = Vector2()
+
+# Scoring variables
+var score = 0
+var pointsOnScore = 10
+var pointsOnCollision = -10
+
+# UI
+var score_label : Label
+var cat_sprite : AnimatedSprite
+
+func _ready():
+    # Initialize the label and sprite references
+    score_label = $Label
+    cat_sprite = $AnimatedSprite
+    # Set the initial animation
+    cat_sprite.play("normal")
+    update_score_label()
+
+func _process(delta):
+    # Player movement
+    velocity.x = speed * Input.get_action_strength("ui_right") - speed * Input.get_action_strength("ui_left")
+    move_and_slide(velocity) 
+
+# Collision 
+func _on_Cat_body_entered(body):
+    if body.is_in_group("snake"):
+        # Snake collision
+        decrease_score(pointsOnCollision)
+        cat_sprite.play("hurt")  # Switch to the hissing animation
+    elif body.is_in_group("points"):
+        # Coin/Points item  
+        increase_score(pointsOnScore)
+
+func increase_score(points):
+    score += points
+    update_score_label()
+    print("Score: ", score)
+
+func decrease_score(points):
+    score += points
+    update_score_label()
+    print("Score: ", score)
+
+func update_score_label(): # Updates score
+    score_label.text = "Score: " + str(score)
+
+
+
+
+
+
+
