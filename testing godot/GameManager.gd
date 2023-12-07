@@ -1,7 +1,7 @@
 extends Node
 
 #memory game 
-@onready var Play = get_node('/root/Game/')
+@onready var Play = get_node('/root/GameManager')
 
 var deck = Array()
 
