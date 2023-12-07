@@ -18,6 +18,7 @@ scale = Vector2(0.481636, 0.544314)
 texture = ExtResource("1_jhtmr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 64.0
 offset_right = 1088.0
@@ -25,6 +26,7 @@ offset_bottom = 512.0
 color = Color(0.321569, 0.760784, 1, 1)
 
 [node name="grid" type="GridContainer" parent="."]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 64.0
 offset_right = 1088.0
