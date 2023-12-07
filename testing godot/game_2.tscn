@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://c81j3gnyie81g"]
+[gd_scene load_steps=25 format=3 uid="uid://c81j3gnyie81g"]
 
 [ext_resource type="Script" path="res://Game2Player.gd" id="1_aaxgc"]
 [ext_resource type="Texture2D" uid="uid://dipjkwao5xlc7" path="res://pictures /cats/cats moving/greyCatSpriteSheetFinal_.png" id="2_rkkgl"]
 [ext_resource type="Texture2D" uid="uid://cf02hi27ls4j3" path="res://pictures /cats/Screenshot 2023-12-06 at 8.47.27 PM.png" id="3_x35vq"]
+[ext_resource type="Texture2D" uid="uid://18ijef4dpevx" path="res://pictures /cats/snake.png" id="4_jq7t4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aa2d8"]
 atlas = ExtResource("2_rkkgl")
@@ -163,7 +164,32 @@ _data = {
 size = Vector2(177, 148)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahljo"]
-size = Vector2(547, 73)
+size = Vector2(1099.5, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh8al"]
+atlas = ExtResource("4_jq7t4")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33klb"]
+atlas = ExtResource("4_jq7t4")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pnevt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dh8al")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33klb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n0psh"]
+radius = 16.593
 
 [node name="Game 2" type="Node2D"]
 
@@ -193,10 +219,20 @@ shape = SubResource("RectangleShape2D_yk88b")
 position = Vector2(296, 432)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(11, 114)
+position = Vector2(287.25, 114)
 shape = SubResource("RectangleShape2D_ahljo")
 
 [node name="Screenshot2023-12-06At8_47_27 pm" type="Sprite2D" parent="."]
-position = Vector2(304.25, 548)
-scale = Vector2(0.966964, 0.133929)
+position = Vector2(583.75, 548)
+scale = Vector2(1.96518, 0.133929)
 texture = ExtResource("3_x35vq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(705, 434)
+scale = Vector2(3.44, 3.42)
+sprite_frames = SubResource("SpriteFrames_pnevt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
+position = Vector2(3.19769, 6.72515)
+shape = SubResource("CircleShape2D_n0psh")
