@@ -1,6 +1,6 @@
 extends Node2D
 
-func _process(delta):
+func _process(_delta):
 	match Game.CatSelect:
 		0:
 			get_node("CatSelect").play("blackcat")
