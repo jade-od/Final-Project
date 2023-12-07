@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var gravity = 100
+var gravity = 50
 var jumpheight = 15
 var speed = 100
 
@@ -19,8 +19,6 @@ func _process(_delta):
 	move_and_slide() 
 	if Input.is_action_pressed("ui_right"):
 		cat_player.play("walking")	
-	#elif Input.is_action_pressed("jump"):
-		cat_player.play("jump")
 	else:
 		cat_player.stop()
 	
