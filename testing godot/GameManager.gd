@@ -16,4 +16,4 @@ func fillDeck():
 	deck.append(Card.new(1,1))
 	
 func dealDeck():
-	Play.get_node('grid').add_child(deck[0])
+	Play.add_child(deck[0]) #get_node('grid').
