@@ -1,9 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://c81j3gnyie81g"]
+[gd_scene load_steps=31 format=3 uid="uid://c81j3gnyie81g"]
 
 [ext_resource type="Script" path="res://Game2Player.gd" id="1_aaxgc"]
 [ext_resource type="Texture2D" uid="uid://dipjkwao5xlc7" path="res://pictures /cats/cats moving/greyCatSpriteSheetFinal_.png" id="2_rkkgl"]
 [ext_resource type="Texture2D" uid="uid://cf02hi27ls4j3" path="res://pictures /cats/Screenshot 2023-12-06 at 8.47.27 PM.png" id="3_x35vq"]
 [ext_resource type="Texture2D" uid="uid://18ijef4dpevx" path="res://pictures /cats/snake.png" id="4_jq7t4"]
+[ext_resource type="Script" path="res://background.gd" id="5_4vhvy"]
+[ext_resource type="Texture2D" uid="uid://cq0tkbgatkqfa" path="res://pictures /cats/background.jpeg" id="6_eqhy4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aa2d8"]
 atlas = ExtResource("2_rkkgl")
@@ -151,10 +153,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.06, 0.31, 0.6, 0.9),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 2]
+"values": [0, 1, 0, 2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a4lrr"]
@@ -166,10 +168,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yk88b"]
-size = Vector2(177, 148)
+size = Vector2(172, 156)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahljo"]
-size = Vector2(1099.5, 73)
+size = Vector2(2248, 16.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3df0a"]
 atlas = ExtResource("4_jq7t4")
@@ -203,32 +205,34 @@ radius = 40.0125
 
 [sub_resource type="Animation" id="Animation_4f8sf"]
 length = 0.001
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("SnakeSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0]
+"values": [0, 1]
 }
 
 [sub_resource type="Animation" id="Animation_ag30d"]
 resource_name = "snake idle"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("SnakeSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.7),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0]
+"values": [1, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k6u1q"]
@@ -238,17 +242,19 @@ _data = {
 }
 
 [node name="Game 2" type="Node2D"]
+position = Vector2(2, -1)
 
 [node name="Game2Player" type="CharacterBody2D" parent="."]
-position = Vector2(169, 64)
+position = Vector2(179, 68)
 script = ExtResource("1_aaxgc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Game2Player"]
 texture_filter = 1
-position = Vector2(0, -1.52588e-05)
+position = Vector2(-50, -18)
 scale = Vector2(5.275, 5.305)
 sprite_frames = SubResource("SpriteFrames_eu3g3")
 animation = &"walking"
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Game2Player"]
 root_node = NodePath("../AnimatedSprite2D")
@@ -257,36 +263,59 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game2Player"]
-position = Vector2(-15, 46)
+position = Vector2(-66, 24)
 shape = SubResource("RectangleShape2D_yk88b")
+
+[node name="Camera2D" type="Camera2D" parent="Game2Player"]
+position = Vector2(91, -148)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(296, 432)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(287.25, 114)
+position = Vector2(830, 142.25)
 shape = SubResource("RectangleShape2D_ahljo")
 
-[node name="Screenshot2023-12-06At8_47_27 pm" type="Sprite2D" parent="."]
-position = Vector2(583.75, 548)
-scale = Vector2(1.96518, 0.133929)
+[node name="Screenshot2023-12-06At8_47_27 pm" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(825.5, 142.75)
+scale = Vector2(3.99107, 0.0383931)
 texture = ExtResource("3_x35vq")
 
 [node name="SnakeEnemy" type="CharacterBody2D" parent="."]
 texture_filter = 1
 position = Vector2(644, 437)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SnakeEnemy"]
-position = Vector2(10, 20)
+[node name="SnakeSprite2D" type="AnimatedSprite2D" parent="SnakeEnemy"]
+position = Vector2(50, 69)
 scale = Vector2(2.3, 2.32)
 sprite_frames = SubResource("SpriteFrames_wfoh2")
 animation = &"snakeIdle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SnakeEnemy"]
-position = Vector2(17, 35)
+position = Vector2(58, 84)
 shape = SubResource("CircleShape2D_p8ie1")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SnakeEnemy"]
+[node name="snakeAnimator" type="AnimationPlayer" parent="SnakeEnemy"]
+autoplay = "snake idle"
 libraries = {
 "": SubResource("AnimationLibrary_k6u1q")
 }
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("5_4vhvy")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+texture_repeat = 3
+position = Vector2(3, -3)
+motion_mirroring = Vector2(1100, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(575, 321)
+scale = Vector2(0.897656, 0.888889)
+texture = ExtResource("6_eqhy4")
