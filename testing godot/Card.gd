@@ -10,7 +10,12 @@ var back
 func _ready():
 	pass # Replace with function body.
 
+func _process(delta):
+	pass
+
 func _init(var s, var v):
 	value = v
 	suit = s
-	face = load("res://pictures /assests (card faces)/PNG/Cards (large)/card_"+str(suit)+"_"+str(value)+".png")
+	face = load("res://assests (card faces)/PNG/Cards (large)/card_"+str(suit)+"_"+str(value)+".png")
+	back = game.cardBack
+	set_texture_normal(face)
