@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var gravity = 100
-var jumpheight = 100
+var jumpheight = 50
 var speed = 100
 
 @onready var _animation_player = $AnimationPlayer
