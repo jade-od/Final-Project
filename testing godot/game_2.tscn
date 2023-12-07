@@ -196,6 +196,22 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_p8ie1"]
 radius = 40.0125
 
+[sub_resource type="Animation" id="Animation_4f8sf"]
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
 [sub_resource type="Animation" id="Animation_ag30d"]
 resource_name = "snake idle"
 tracks/0/type = "value"
@@ -206,21 +222,6 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0.7),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_4f8sf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
@@ -277,6 +278,7 @@ position = Vector2(10, 20)
 scale = Vector2(2.3, 2.32)
 sprite_frames = SubResource("SpriteFrames_wfoh2")
 animation = &"snakeIdle"
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SnakeEnemy"]
 position = Vector2(17, 35)
