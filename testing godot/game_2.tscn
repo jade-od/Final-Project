@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://c81j3gnyie81g"]
+[gd_scene load_steps=20 format=3 uid="uid://c81j3gnyie81g"]
 
 [ext_resource type="Script" path="res://Game2Player.gd" id="1_aaxgc"]
 [ext_resource type="Texture2D" uid="uid://dipjkwao5xlc7" path="res://pictures /cats/cats moving/greyCatSpriteSheetFinal_.png" id="2_rkkgl"]
+[ext_resource type="Texture2D" uid="uid://cf02hi27ls4j3" path="res://pictures /cats/Screenshot 2023-12-06 at 8.47.27 PM.png" id="3_x35vq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aa2d8"]
 atlas = ExtResource("2_rkkgl")
@@ -68,34 +69,134 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j1poy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa2d8")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mm8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2a3f0")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa2d8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bwua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa2d8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edpkt")
+}],
+"loop": false,
+"name": &"walking",
+"speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk88b"]
-size = Vector2(1157.12, 995.25)
+[sub_resource type="Animation" id="Animation_4lygn"]
+resource_name = "walking"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06, 0.31, 0.6, 0.87),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
 
-[sub_resource type="TileSet" id="TileSet_v8ats"]
+[sub_resource type="Animation" id="Animation_7hx4p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_obe14"]
+resource_name = "run"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.09, 0.4, 0.72, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 0, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a4lrr"]
+_data = {
+"RESET": SubResource("Animation_7hx4p"),
+"run": SubResource("Animation_obe14"),
+"walking": SubResource("Animation_4lygn")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk88b"]
+size = Vector2(177, 148)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahljo"]
+size = Vector2(547, 73)
 
 [node name="Game 2" type="Node2D"]
 
 [node name="Game2Player" type="CharacterBody2D" parent="."]
-position = Vector2(221, 157)
+position = Vector2(169, 64)
 script = ExtResource("1_aaxgc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Game2Player"]
 texture_filter = 1
-position = Vector2(-221, -157)
-scale = Vector2(37.38, 37.98)
+position = Vector2(0, -1.52588e-05)
+scale = Vector2(5.275, 5.305)
 sprite_frames = SubResource("SpriteFrames_eu3g3")
+animation = &"walking"
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Game2Player"]
+root_node = NodePath("../AnimatedSprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_a4lrr")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game2Player"]
-position = Vector2(-308.562, 173.375)
+position = Vector2(-15, 46)
 shape = SubResource("RectangleShape2D_yk88b")
 
-[node name="Ground" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_v8ats")
-cell_quadrant_size = 32
-format = 2
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(296, 432)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(11, 114)
+shape = SubResource("RectangleShape2D_ahljo")
+
+[node name="Screenshot2023-12-06At8_47_27 pm" type="Sprite2D" parent="."]
+position = Vector2(304.25, 548)
+scale = Vector2(0.966964, 0.133929)
+texture = ExtResource("3_x35vq")
