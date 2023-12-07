@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c81j3gnyie81g"]
+[gd_scene load_steps=29 format=3 uid="uid://c81j3gnyie81g"]
 
 [ext_resource type="Script" path="res://Game2Player.gd" id="1_aaxgc"]
 [ext_resource type="Texture2D" uid="uid://dipjkwao5xlc7" path="res://pictures /cats/cats moving/greyCatSpriteSheetFinal_.png" id="2_rkkgl"]
@@ -86,6 +86,17 @@ animations = [{
 "texture": SubResource("AtlasTexture_2a3f0")
 }],
 "loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mm8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2a3f0")
+}],
+"loop": true,
 "name": &"run",
 "speed": 5.0
 }, {
@@ -153,9 +164,13 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_tjfxq"]
+resource_name = "jumping"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a4lrr"]
 _data = {
 "RESET": SubResource("Animation_7hx4p"),
+"jumping": SubResource("Animation_tjfxq"),
 "run": SubResource("Animation_obe14"),
 "walking": SubResource("Animation_4lygn")
 }
@@ -244,8 +259,7 @@ texture_filter = 1
 position = Vector2(0, -1.52588e-05)
 scale = Vector2(5.275, 5.305)
 sprite_frames = SubResource("SpriteFrames_eu3g3")
-animation = &"walking"
-frame = 1
+animation = &"jumping"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Game2Player"]
 root_node = NodePath("../AnimatedSprite2D")
@@ -278,7 +292,6 @@ position = Vector2(10, 20)
 scale = Vector2(2.3, 2.32)
 sprite_frames = SubResource("SpriteFrames_wfoh2")
 animation = &"snakeIdle"
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SnakeEnemy"]
 position = Vector2(17, 35)
