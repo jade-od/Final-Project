@@ -18,12 +18,14 @@ offset_right = 64.0
 offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
 offset_top = 1.0
 offset_right = 1024.0
 offset_bottom = 472.0
 color = Color(0.290196, 0.607843, 1, 1)
 
 [node name="grid" type="GridContainer" parent="Control"]
+layout_mode = 0
 offset_right = 1024.0
 offset_bottom = 472.0
 columns = 3
