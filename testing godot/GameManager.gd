@@ -3,6 +3,8 @@ extends Node
 #memory game 
 @onready var Play = get_node('/root/matching/')
 
+
+
 var deck = Array()
 
 var cardBack = preload("res://assests (card faces)/PNG/Cards (large)/card_back.png")
@@ -27,5 +29,6 @@ func dealDeck():
 	#Play.get_node('grid').add_child(deck[0]) #get_node('grid').
 	var c = 0
 	while c < deck.size():
+		
 		Play.get_node('grid').add_child(deck[c])
 		c +=1
