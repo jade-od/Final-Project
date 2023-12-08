@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var pause_menu = $PauseMenuG2
+@onready var pause_menu = $Game2Player/Camera2D/PauseMenuG2
 var paused = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

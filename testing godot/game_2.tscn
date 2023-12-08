@@ -269,6 +269,21 @@ libraries = {
 position = Vector2(-100, 62)
 shape = SubResource("RectangleShape2D_yk88b")
 
+[node name="Camera2D" type="Camera2D" parent="Game2Player"]
+position = Vector2(91, -148)
+
+[node name="PauseMenuG2" parent="Game2Player/Camera2D" instance=ExtResource("8_y50g2")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 218.0
+offset_top = 40.0
+offset_right = 336.0
+offset_bottom = 380.0
+grow_horizontal = 1
+grow_vertical = 1
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(296, 432)
 
@@ -316,15 +331,6 @@ texture_filter = 1
 [node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D"]
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(557.75, 326)
+position = Vector2(573, 323)
 scale = Vector2(0.897265, 0.888889)
 texture = ExtResource("6_eqhy4")
-
-[node name="PauseMenuG2" parent="." instance=ExtResource("8_y50g2")]
-offset_left = 488.0
-offset_top = 276.0
-offset_right = 610.0
-offset_bottom = 349.0
-
-[node name="Camera2D" type="Camera2D" parent="PauseMenuG2"]
-position = Vector2(-218, -356)

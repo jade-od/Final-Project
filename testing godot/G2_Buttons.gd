@@ -1,6 +1,6 @@
 extends Control
 
-@onready var game_2 = $Game2Player/Camera2D/PauseMenuG2
+@onready var game_2 = $"../../../"
 
 
 func _on_resume_pressed():
