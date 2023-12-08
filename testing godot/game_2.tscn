@@ -316,6 +316,6 @@ texture_filter = 1
 [node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D"]
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(558, 326)
-scale = Vector2(0.897656, 0.888889)
+position = Vector2(557.75, 326)
+scale = Vector2(0.897265, 0.888889)
 texture = ExtResource("6_eqhy4")
