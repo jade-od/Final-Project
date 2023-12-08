@@ -1,7 +1,7 @@
 extends Node
 
 #memory game 
-@onready var Play = get_node('/root/GameManager')
+@onready var Play = get_node('/root/matching/')
 
 var deck = Array()
 
@@ -16,4 +16,4 @@ func fillDeck():
 	deck.append(Card.new(1,1))
 	
 func dealDeck():
-	Play.add_child(deck[0]) #get_node('grid').
+	Play.get_node('grid').add_child(deck[0]) #get_node('grid').
