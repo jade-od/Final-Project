@@ -6,8 +6,8 @@ func _on_game_1_pressed():
 func _on_game_2_pressed():
 	get_tree().change_scene_to_file("res://game_2.tscn")
 
-func _on_game_3_pressed():
-	get_tree().change_scene_to_file("res://matchinggame.tscn")
+#func _on_game_3_pressed():
+#	get_tree().change_scene_to_file("res://matchinggame.tscn")
 
 func _on_return_pressed():
 	get_tree().change_scene_to_file("res://main.tscn")

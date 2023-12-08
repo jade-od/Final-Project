@@ -22,3 +22,6 @@ func _init(s, v):
 	face = load("res://assests (card faces)/PNG/Cards (large)/card_"+str(suit)+"_"+str(value)+".png")
 	back = GameManager.cardBack
 	set_texture_normal(back)
+	
+func _pressed():
+	pass
