@@ -7,7 +7,7 @@ extends Node
 
 var deck = Array()
 
-var cardBack = preload("res://assests (card faces)/PNG/Cards (large)/card_back.png")
+var cardBack = preload("res://assests (card faces)/PNG/Cards (large)/cat_card_back.png")
 
 func _ready():
 	#print_tree()
