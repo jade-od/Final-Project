@@ -168,7 +168,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yk88b"]
-size = Vector2(172, 156)
+size = Vector2(121, 102)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahljo"]
 size = Vector2(2248, 16.5)
@@ -250,8 +250,8 @@ script = ExtResource("1_aaxgc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Game2Player"]
 texture_filter = 1
-position = Vector2(-50, -18)
-scale = Vector2(5.275, 5.305)
+position = Vector2(-93.7188, 32.6562)
+scale = Vector2(3.78875, 3.66625)
 sprite_frames = SubResource("SpriteFrames_eu3g3")
 animation = &"walking"
 frame = 1
@@ -263,7 +263,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game2Player"]
-position = Vector2(-66, 24)
+position = Vector2(-100, 62)
 shape = SubResource("RectangleShape2D_yk88b")
 
 [node name="Camera2D" type="Camera2D" parent="Game2Player"]
@@ -316,6 +316,6 @@ texture_filter = 1
 [node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D"]
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(575, 321)
+position = Vector2(558, 326)
 scale = Vector2(0.897656, 0.888889)
 texture = ExtResource("6_eqhy4")
