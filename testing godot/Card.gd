@@ -8,7 +8,10 @@ var face
 var back
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	set_h_size_flags(3)
+	set_v_size_flags(3)
+	set_ignore_texture_size(true)
+	set_stretch_mode(TextureButton.STRETCH_KEEP_ASPECT_CENTERED)
 
 #func _process(delta):
 #	pass
