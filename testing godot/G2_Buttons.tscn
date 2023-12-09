@@ -49,3 +49,4 @@ ignore_texture_size = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Toggle Sound" to="." method="_on_toggle_sound_pressed"]

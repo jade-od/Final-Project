@@ -19,8 +19,15 @@ func _process(_delta):
 	move_and_slide() 
 	if Input.is_action_pressed("ui_right"):
 		cat_player.play("walking")
+	#if Input.is_action_just_released("ui_left"):
+		
 	else:
 		cat_player.stop()
+		
+func respawn():
+	get_tree().reload_current_scene()
+	
+	
 	
 	#make sure they can only jump twice . 
 	

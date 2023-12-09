@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://game_2.gd" id="1_j5gko"]
 [ext_resource type="Texture2D" uid="uid://dipjkwao5xlc7" path="res://pictures /cats/cats moving/greyCatSpriteSheetFinal_.png" id="2_rkkgl"]
 [ext_resource type="Texture2D" uid="uid://cf02hi27ls4j3" path="res://pictures /cats/Screenshot 2023-12-06 at 8.47.27 PM.png" id="3_x35vq"]
+[ext_resource type="Script" path="res://HealthBar.gd" id="4_g3h74"]
 [ext_resource type="Texture2D" uid="uid://18ijef4dpevx" path="res://pictures /cats/snake.png" id="4_jq7t4"]
 [ext_resource type="Script" path="res://background.gd" id="5_4vhvy"]
 [ext_resource type="Texture2D" uid="uid://cq0tkbgatkqfa" path="res://pictures /cats/background.jpeg" id="6_eqhy4"]
@@ -155,7 +156,7 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 0, 2]
@@ -173,7 +174,7 @@ _data = {
 size = Vector2(121, 102)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahljo"]
-size = Vector2(2248, 16.5)
+size = Vector2(2256, 39)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3df0a"]
 atlas = ExtResource("4_jq7t4")
@@ -243,11 +244,8 @@ _data = {
 "snake idle": SubResource("Animation_ag30d")
 }
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4h2h2"]
-distance = -16.0
-
 [node name="Game 2" type="Node2D"]
-position = Vector2(2, -1)
+position = Vector2(3, -2)
 script = ExtResource("1_j5gko")
 
 [node name="Game2Player" type="CharacterBody2D" parent="."]
@@ -260,7 +258,6 @@ position = Vector2(-93.7188, 32.6562)
 scale = Vector2(3.78875, 3.66625)
 sprite_frames = SubResource("SpriteFrames_eu3g3")
 animation = &"walking"
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Game2Player"]
 root_node = NodePath("../AnimatedSprite2D")
@@ -273,7 +270,14 @@ position = Vector2(-100, 62)
 shape = SubResource("RectangleShape2D_yk88b")
 
 [node name="Camera2D" type="Camera2D" parent="Game2Player"]
-position = Vector2(91, -148)
+position = Vector2(107, -146)
+
+[node name="HealthBar" type="TextureProgressBar" parent="Game2Player/Camera2D"]
+offset_left = -267.0
+offset_top = 159.0
+offset_right = -149.0
+offset_bottom = 258.0
+script = ExtResource("4_g3h74")
 
 [node name="PauseMenuG2" parent="Game2Player/Camera2D" instance=ExtResource("8_y50g2")]
 visible = false
@@ -291,12 +295,12 @@ grow_vertical = 1
 position = Vector2(296, 432)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platforms"]
-position = Vector2(830, 142.25)
+position = Vector2(832, 239.5)
 shape = SubResource("RectangleShape2D_ahljo")
 
 [node name="Screenshot2023-12-06At8_47_27 pm" type="Sprite2D" parent="platforms"]
-position = Vector2(825.5, 142.75)
-scale = Vector2(3.99107, 0.0383931)
+position = Vector2(829, 234)
+scale = Vector2(4.00357, 0.0124999)
 texture = ExtResource("3_x35vq")
 
 [node name="SnakeEnemy" type="CharacterBody2D" parent="."]
@@ -304,13 +308,13 @@ texture_filter = 1
 position = Vector2(644, 437)
 
 [node name="SnakeSprite2D" type="AnimatedSprite2D" parent="SnakeEnemy"]
-position = Vector2(50, 69)
+position = Vector2(114, 155)
 scale = Vector2(2.3, 2.32)
 sprite_frames = SubResource("SpriteFrames_wfoh2")
 animation = &"snakeIdle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SnakeEnemy"]
-position = Vector2(58, 84)
+position = Vector2(122, 170)
 shape = SubResource("CircleShape2D_p8ie1")
 
 [node name="snakeAnimator" type="AnimationPlayer" parent="SnakeEnemy"]
@@ -334,12 +338,6 @@ texture_filter = 1
 [node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D"]
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(573, 323)
-scale = Vector2(0.897265, 0.888889)
+position = Vector2(578, 320)
+scale = Vector2(0.896973, 0.9)
 texture = ExtResource("6_eqhy4")
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(13, 627)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("WorldBoundaryShape2D_4h2h2")
