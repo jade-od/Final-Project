@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c81j3gnyie81g"]
+[gd_scene load_steps=34 format=3 uid="uid://c81j3gnyie81g"]
 
 [ext_resource type="Script" path="res://Game2Player.gd" id="1_aaxgc"]
 [ext_resource type="Script" path="res://game_2.gd" id="1_j5gko"]
@@ -243,6 +243,9 @@ _data = {
 "snake idle": SubResource("Animation_ag30d")
 }
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4h2h2"]
+distance = -16.0
+
 [node name="Game 2" type="Node2D"]
 position = Vector2(2, -1)
 script = ExtResource("1_j5gko")
@@ -284,14 +287,14 @@ offset_bottom = 380.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="platforms" type="StaticBody2D" parent="."]
 position = Vector2(296, 432)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms"]
 position = Vector2(830, 142.25)
 shape = SubResource("RectangleShape2D_ahljo")
 
-[node name="Screenshot2023-12-06At8_47_27 pm" type="Sprite2D" parent="StaticBody2D"]
+[node name="Screenshot2023-12-06At8_47_27 pm" type="Sprite2D" parent="platforms"]
 position = Vector2(825.5, 142.75)
 scale = Vector2(3.99107, 0.0383931)
 texture = ExtResource("3_x35vq")
@@ -334,3 +337,9 @@ texture_repeat = 2
 position = Vector2(573, 323)
 scale = Vector2(0.897265, 0.888889)
 texture = ExtResource("6_eqhy4")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(13, 627)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("WorldBoundaryShape2D_4h2h2")
