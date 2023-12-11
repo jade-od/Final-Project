@@ -1,24 +1,34 @@
 extends Node
-
 #memory game 
 @onready var Play = get_node('/root/matching/')
-
 var deck = Array()
-
 var cardBack = preload("res://assests (card faces)/PNG/Cards (large)/cat_card_back.png")
-
 var card1
 var card2
-
 var matchTimer = Timer.new()
 var flipTimer = Timer.new()
-
+var secondsTimer = Timer.new()
 var score = 0
+var seconds = 0
+var moves = 0 
+
+var scoreLabel
+var timerLabel 
+var movesLabel
 
 func _ready():
 	fillDeck()
 	dealDeck()
 	setupTimers()
+	setupHUD()
+	
+func setupHUD():
+	scoreLabel = Play.get_node('HUD/Panel/Sections/SectionScore/Score')
+	timerLabel = Play.get_node('HUD/Panel/Sections/SectionTimer/Seconds')
+	movesLabel = Play.get_node('HUD/Panel/Sections/SectionMoves/Moves')
+	scoreLabel.text = str(score)
+	timerLabel.text = str(seconds)
+	movesLabel.text = str(moves)
 	
 func setupTimers():
 	flipTimer.timeout.connect(turnOverCards)
@@ -28,6 +38,14 @@ func setupTimers():
 	matchTimer.timeout.connect(matchCardsAndScore)
 	matchTimer.set_one_shot(true)
 	add_child(matchTimer)
+	
+	secondsTimer.timeout.connect(countSeconds)
+	add_child(secondsTimer)
+	secondsTimer.start()
+
+func countSeconds():
+	seconds += 1 
+	timerLabel.text = str(seconds)
 
 func fillDeck():
 	#deck.append(Card.new(1,1))
@@ -56,6 +74,8 @@ func chooseCard(c): #var c
 		card2 = c
 		card2.flip()
 		card2.set_disabled(true)
+		moves  += 1 
+		movesLabel.text = str(moves)
 		checkCards()
 
 func checkCards():
@@ -74,6 +94,7 @@ func turnOverCards():
 
 func matchCardsAndScore():
 	score += 1
+	scoreLabel.text = str(score)
 	card1.set_modulate(Color(0.6,0.6,0.6,0.5))
 	card2.set_modulate(Color(0.6,0.6,0.6,0.5))
 	card1 = null
