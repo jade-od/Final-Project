@@ -24,6 +24,7 @@ offset_top = 544.0
 offset_right = 369.0
 offset_bottom = 612.0
 theme_override_fonts/font = ExtResource("3_gfaqw")
+theme_override_font_sizes/font_size = 20
 text = "Start Game"
 
 [node name="Leave" type="Button" parent="."]
@@ -32,6 +33,7 @@ offset_top = 544.0
 offset_right = 961.0
 offset_bottom = 612.0
 theme_override_fonts/font = ExtResource("3_gfaqw")
+theme_override_font_sizes/font_size = 20
 text = "Leave Game"
 
 [node name="Game" type="ColorRect" parent="."]

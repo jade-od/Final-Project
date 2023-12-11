@@ -67,6 +67,7 @@ offset_top = 281.0
 offset_right = 407.0
 offset_bottom = 364.0
 theme_override_fonts/font = ExtResource("6_75567")
+theme_override_font_sizes/font_size = 30
 text = "Left"
 
 [node name="Right" type="Button" parent="."]
@@ -75,6 +76,7 @@ offset_top = 280.0
 offset_right = 888.0
 offset_bottom = 363.0
 theme_override_fonts/font = ExtResource("6_75567")
+theme_override_font_sizes/font_size = 30
 text = "Right"
 
 [node name="Select" type="Button" parent="."]
@@ -83,6 +85,7 @@ offset_top = 407.0
 offset_right = 682.0
 offset_bottom = 482.0
 theme_override_fonts/font = ExtResource("6_75567")
+theme_override_font_sizes/font_size = 30
 text = "Select"
 
 [connection signal="pressed" from="Left" to="." method="_on_left_pressed"]

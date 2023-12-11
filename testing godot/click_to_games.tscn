@@ -18,6 +18,7 @@ offset_top = 125.0
 offset_right = 444.0
 offset_bottom = 279.0
 theme_override_fonts/font = ExtResource("3_oxfks")
+theme_override_font_sizes/font_size = 40
 text = "Game 1"
 
 [node name="Game 2" type="Button" parent="."]
@@ -26,6 +27,7 @@ offset_top = 123.0
 offset_right = 953.0
 offset_bottom = 277.0
 theme_override_fonts/font = ExtResource("3_oxfks")
+theme_override_font_sizes/font_size = 40
 text = "Game 2"
 
 [node name="Game 3" type="Button" parent="."]
@@ -34,14 +36,17 @@ offset_top = 343.0
 offset_right = 704.0
 offset_bottom = 497.0
 theme_override_fonts/font = ExtResource("3_oxfks")
-text = "Matching Game"
+theme_override_font_sizes/font_size = 40
+text = "Matching
+Game"
 
 [node name="Return" type="Button" parent="."]
-offset_left = 889.0
-offset_top = 547.0
-offset_right = 1113.0
-offset_bottom = 608.0
+offset_left = 832.0
+offset_top = 544.0
+offset_right = 1130.0
+offset_bottom = 624.0
 theme_override_fonts/font = ExtResource("3_oxfks")
+theme_override_font_sizes/font_size = 20
 text = "Return to Home Screen"
 
 [connection signal="pressed" from="Game 1" to="." method="_on_game_1_pressed"]
