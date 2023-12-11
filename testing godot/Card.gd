@@ -24,4 +24,10 @@ func _init(s, v):
 	set_texture_normal(back)
 	
 func _pressed():
-	pass
+	GameManager.chooseCard(self)
+
+func flip():
+	if get_texture_normal() == back:
+		set_texture_normal(face)
+	else: 
+		set_texture_normal(back)
