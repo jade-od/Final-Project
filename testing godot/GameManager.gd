@@ -13,6 +13,8 @@ var card2
 var matchTimer = Timer.new()
 var flipTimer = Timer.new()
 
+var score = 0
+
 func _ready():
 	fillDeck()
 	dealDeck()
@@ -39,7 +41,7 @@ func fillDeck():
 		s += 1
 	
 func dealDeck():
-	#Play.get_node('grid').add_child(deck[0]) #get_node('grid').
+	#deck.shuffle()
 	var c = 0
 	while c < deck.size():
 		Play.get_node('grid').add_child(deck[c])
@@ -71,7 +73,9 @@ func turnOverCards():
 	card2 = null
 
 func matchCardsAndScore():
+	score += 1
 	card1.set_modulate(Color(0.6,0.6,0.6,0.5))
 	card2.set_modulate(Color(0.6,0.6,0.6,0.5))
 	card1 = null
 	card2 = null
+	print(score)

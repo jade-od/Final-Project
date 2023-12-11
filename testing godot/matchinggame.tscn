@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cl5sph01b4enx"]
+[gd_scene load_steps=4 format=3 uid="uid://cl5sph01b4enx"]
 
 [ext_resource type="Script" path="res://matchinggame.gd" id="1_7idct"]
 [ext_resource type="Texture2D" uid="uid://clju1qxnho6o6" path="res://pictures /bg/Screenshot 2023-11-27 at 10.49.55 AM.png" id="1_jhtmr"]
+[ext_resource type="PackedScene" uid="uid://dauabm6i7br2y" path="res://HUD.tscn" id="3_m5eoq"]
 
 [node name="matching" type="Control"]
 layout_mode = 3
@@ -32,3 +33,6 @@ offset_top = 16.0
 offset_right = 1136.0
 offset_bottom = 512.0
 columns = 13
+
+[node name="HUD" parent="." instance=ExtResource("3_m5eoq")]
+layout_mode = 1
