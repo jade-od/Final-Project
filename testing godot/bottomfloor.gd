@@ -11,5 +11,6 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.has_method("player"):
 		character_falling = true
+		get_tree().change_scene_to_file("res://respawn.tscn")
 func falling():
 	pass
