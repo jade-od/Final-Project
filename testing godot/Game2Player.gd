@@ -6,8 +6,7 @@ var speed = 400
 var health = 100
 var player_alive = true
 var score = 0
-
-
+var bar
 
 var enemy_in_range = false
 @onready var cat_player = $AnimationPlayer
@@ -31,9 +30,9 @@ func _process(_delta):
 		sprites.flip_h = true
 	if Input.is_action_just_pressed("jump"):
 		sprites.play("run")
-		
-		
-
+func _ready():
+	bar =  get_node("ScoreLabelG2")
+	
 func _on_area_2d_body_entered(body):
 	if body.has_method("enemy"):
 		enemy_in_range = true
@@ -50,7 +49,12 @@ func enemy_attack():
 		if health <= 0:
 			Engine.time_scale = 0
 			get_tree().change_scene_to_file("res://respawn.tscn")
-	
+			
+func score_update():
+	pass
+			
+
+
 		
 func player():
 	pass
@@ -65,10 +69,3 @@ func _on_check_button_button_up():
 	$AudioStreamPlayer.play()
 
 
-
-
-
-func _on_coin_body_entered(body):
-	score += 20
-	child.queue_free()
-	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c81j3gnyie81g"]
+[gd_scene load_steps=16 format=3 uid="uid://c81j3gnyie81g"]
 
 [ext_resource type="Script" path="res://game_2.gd" id="1_j5gko"]
 [ext_resource type="PackedScene" uid="uid://bjlgqj8oqmelf" path="res://game_2_player.tscn" id="2_jn4l4"]
@@ -6,36 +6,78 @@
 [ext_resource type="Texture2D" uid="uid://d1bu4ewrodtpd" path="res://global/bricks.png" id="4_763si"]
 [ext_resource type="PackedScene" uid="uid://bbiyavdnm28js" path="res://g2enemy.tscn" id="4_mgaex"]
 [ext_resource type="Script" path="res://background.gd" id="5_4vhvy"]
+[ext_resource type="PackedScene" uid="uid://e5xktgxi1amc" path="res://game2coins.tscn" id="6_3cj0v"]
 [ext_resource type="Texture2D" uid="uid://cq0tkbgatkqfa" path="res://pictures /cats/background.jpeg" id="6_eqhy4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahljo"]
-size = Vector2(8418.75, 29)
+[ext_resource type="Script" path="res://game_2.gd" id="9_gkdbs"]
+[ext_resource type="Script" path="res://coin.gd" id="10_dyu5l"]
+[ext_resource type="Texture2D" uid="uid://2xft0rsjgmed" path="res://pixel-art-red-chinese-gold-coin-png.webp" id="11_i1vhj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0mau"]
 size = Vector2(254.5, 56.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c11q1"]
+size = Vector2(909.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahljo"]
+size = Vector2(7497, 67.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tgqns"]
 
 [node name="Game 2" type="Node2D"]
 position = Vector2(22, 18)
 script = ExtResource("1_j5gko")
 
 [node name="Game2Player" parent="." instance=ExtResource("2_jn4l4")]
+position = Vector2(160, 12)
+
+[node name="SnakeEnemy" parent="." instance=ExtResource("4_mgaex")]
+scale = Vector2(0.977227, 1.05498)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("5_4vhvy")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+texture_repeat = 3
+position = Vector2(3, -3)
+motion_mirroring = Vector2(1100, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(572, 328)
+scale = Vector2(0.896924, 0.905556)
+texture = ExtResource("6_eqhy4")
+
+[node name="coins" parent="." instance=ExtResource("6_3cj0v")]
+position = Vector2(737, 334)
+
+[node name="coins2" parent="." instance=ExtResource("6_3cj0v")]
+position = Vector2(1178, 264)
+
+[node name="coins3" parent="." instance=ExtResource("6_3cj0v")]
+position = Vector2(1605, 316)
+
+[node name="coins4" parent="." instance=ExtResource("6_3cj0v")]
+position = Vector2(2073, 334)
+
+[node name="coins5" parent="." instance=ExtResource("6_3cj0v")]
+position = Vector2(2543, 208)
+
+[node name="coins6" parent="." instance=ExtResource("6_3cj0v")]
+position = Vector2(2985, 197)
+
+[node name="coins7" parent="." instance=ExtResource("6_3cj0v")]
+position = Vector2(3585, 134)
+
+[node name="coins8" parent="." instance=ExtResource("6_3cj0v")]
+position = Vector2(4083, 247)
 
 [node name="platforms" type="StaticBody2D" parent="."]
-position = Vector2(281, 426)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms"]
-position = Vector2(3911.62, 228)
-shape = SubResource("RectangleShape2D_ahljo")
-
-[node name="Screenshot2023-12-06At8_47_27 pm" type="Sprite2D" parent="platforms/CollisionShape2D"]
-position = Vector2(-1038, 5)
-scale = Vector2(4.00357, 0.0124999)
-texture = ExtResource("3_x35vq")
-
-[node name="Screenshot2023-12-06At8_47_27 pm2" type="Sprite2D" parent="platforms/CollisionShape2D"]
-position = Vector2(876, 3)
-scale = Vector2(4.00357, 0.0124999)
-texture = ExtResource("3_x35vq")
+position = Vector2(269, 428)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="platforms"]
 position = Vector2(488, -27)
@@ -129,24 +171,93 @@ position = Vector2(3, 1)
 scale = Vector2(0.286667, 0.0833333)
 texture = ExtResource("4_763si")
 
-[node name="SnakeEnemy" parent="." instance=ExtResource("4_mgaex")]
-scale = Vector2(0.977227, 1.05498)
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-script = ExtResource("5_4vhvy")
+[node name="Screenshot2023-12-06At8_47_27 pm3" type="Sprite2D" parent="Area2D"]
+position = Vector2(3087, 678.25)
+scale = Vector2(11.0357, 0.0124999)
+texture = ExtResource("3_x35vq")
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-texture_filter = 1
-texture_repeat = 3
-position = Vector2(3, -3)
-motion_mirroring = Vector2(1100, 2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(439.25, 675)
+shape = SubResource("RectangleShape2D_c11q1")
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture_filter = 1
+[node name="bottom" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4641.5, 675.25)
+shape = SubResource("RectangleShape2D_ahljo")
+script = ExtResource("9_gkdbs")
 
-[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D"]
-texture_filter = 1
-texture_repeat = 2
-position = Vector2(572, 328)
-scale = Vector2(0.896924, 0.905556)
-texture = ExtResource("6_eqhy4")
+[node name="Screenshot2023-12-06At8_47_27 pm2" type="Sprite2D" parent="Area2D/bottom"]
+position = Vector2(876, 3)
+scale = Vector2(4.00357, 0.0124999)
+texture = ExtResource("3_x35vq")
+
+[node name="Screenshot2023-12-06At8_47_27 pm" type="Sprite2D" parent="Area2D/bottom"]
+position = Vector2(-1770.5, 5)
+scale = Vector2(6.61964, 0.0124999)
+texture = ExtResource("3_x35vq")
+
+[node name="coin" type="Area2D" parent="Area2D/bottom"]
+position = Vector2(552, 265)
+scale = Vector2(3, 3)
+script = ExtResource("10_dyu5l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/bottom/coin"]
+position = Vector2(-2.33333, 1.33332)
+shape = SubResource("CircleShape2D_tgqns")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/bottom/coin/CollisionShape2D"]
+
+[node name="Pixel-art-red-chinese-gold-coin-png" type="Sprite2D" parent="Area2D/bottom/coin/CollisionShape2D/Sprite2D"]
+top_level = true
+position = Vector2(729, 327)
+scale = Vector2(0.0351562, 0.0442708)
+texture = ExtResource("11_i1vhj")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D/bottom/coin"]
+position = Vector2(671.333, 69.6667)
+shape = SubResource("CircleShape2D_tgqns")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/bottom/coin/CollisionShape2D4"]
+
+[node name="Pixel-art-red-chinese-gold-coin-png" type="Sprite2D" parent="Area2D/bottom/coin/CollisionShape2D4/Sprite2D"]
+top_level = true
+position = Vector2(2096, 351)
+scale = Vector2(0.0351562, 0.0442708)
+texture = ExtResource("11_i1vhj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D/bottom/coin"]
+position = Vector2(387, 34.6667)
+shape = SubResource("CircleShape2D_tgqns")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/bottom/coin/CollisionShape2D2"]
+
+[node name="Pixel-art-red-chinese-gold-coin-png" type="Sprite2D" parent="Area2D/bottom/coin/CollisionShape2D2/Sprite2D"]
+top_level = true
+position = Vector2(1242, 250)
+scale = Vector2(0.0351562, 0.0442708)
+texture = ExtResource("11_i1vhj")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Area2D/bottom/coin"]
+position = Vector2(825.667, 24)
+shape = SubResource("CircleShape2D_tgqns")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/bottom/coin/CollisionShape2D5"]
+
+[node name="Pixel-art-red-chinese-gold-coin-png" type="Sprite2D" parent="Area2D/bottom/coin/CollisionShape2D5/Sprite2D"]
+top_level = true
+position = Vector2(2555, 214)
+scale = Vector2(0.0351562, 0.0442708)
+texture = ExtResource("11_i1vhj")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Area2D/bottom/coin"]
+position = Vector2(970.333, 11.3333)
+shape = SubResource("CircleShape2D_tgqns")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/bottom/coin/CollisionShape2D6"]
+
+[node name="Pixel-art-red-chinese-gold-coin-png" type="Sprite2D" parent="Area2D/bottom/coin/CollisionShape2D6/Sprite2D"]
+top_level = true
+position = Vector2(2998, 175)
+scale = Vector2(0.0351562, 0.0442708)
+texture = ExtResource("11_i1vhj")

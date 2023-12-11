@@ -3,11 +3,10 @@
 [ext_resource type="Script" path="res://Game2Player.gd" id="1_rg61k"]
 [ext_resource type="Texture2D" uid="uid://dipjkwao5xlc7" path="res://pictures /cats/cats moving/greyCatSpriteSheetFinal_.png" id="2_7wuau"]
 [ext_resource type="AudioStream" uid="uid://chouxgbd0qhyx" path="res://pictures /cats/Sakura-Girl-Peach-chosic.com_.mp3" id="2_x0uow"]
-[ext_resource type="Texture2D" uid="uid://2xft0rsjgmed" path="res://pixel-art-red-chinese-gold-coin-png.webp" id="2_yby5j"]
 [ext_resource type="Texture2D" uid="uid://ywq3ppgkpth3" path="res://pictures /cats/pixil-frame-3 (1).png" id="3_eok0a"]
 [ext_resource type="PackedScene" uid="uid://d1w5vg6in3lpr" path="res://G2_Buttons.tscn" id="4_x6wul"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_d1shi"]
+[ext_resource type="Script" path="res://scoreLabelG2.gd" id="8_5uuii"]
+[ext_resource type="FontFile" uid="uid://b074xph6ihn0x" path="res://assests (card faces)/font/Kenney Pixel Square.ttf" id="8_rj3st"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yk88b"]
 size = Vector2(117, 100)
@@ -258,82 +257,6 @@ position = Vector2(179, 60)
 collision_layer = 3
 script = ExtResource("1_rg61k")
 
-[node name="coin" type="Area2D" parent="."]
-position = Vector2(-105, 83)
-scale = Vector2(3, 3)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="coin"]
-position = Vector2(218.667, 58.6667)
-shape = SubResource("CircleShape2D_d1shi")
-
-[node name="Sprite2D" type="Sprite2D" parent="coin/CollisionShape2D"]
-
-[node name="Pixel-art-red-chinese-gold-coin-png" type="Sprite2D" parent="coin/CollisionShape2D/Sprite2D"]
-top_level = true
-position = Vector2(733, 324)
-scale = Vector2(0.0351562, 0.0442708)
-texture = ExtResource("2_yby5j")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="coin"]
-position = Vector2(519.333, 52.6667)
-shape = SubResource("CircleShape2D_d1shi")
-
-[node name="Sprite2D" type="Sprite2D" parent="coin/CollisionShape2D3"]
-
-[node name="Pixel-art-red-chinese-gold-coin-png" type="Sprite2D" parent="coin/CollisionShape2D3/Sprite2D"]
-top_level = true
-position = Vector2(1630, 301)
-scale = Vector2(0.0351562, 0.0442708)
-texture = ExtResource("2_yby5j")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="coin"]
-position = Vector2(671.333, 69.6667)
-shape = SubResource("CircleShape2D_d1shi")
-
-[node name="Sprite2D" type="Sprite2D" parent="coin/CollisionShape2D4"]
-
-[node name="Pixel-art-red-chinese-gold-coin-png" type="Sprite2D" parent="coin/CollisionShape2D4/Sprite2D"]
-top_level = true
-position = Vector2(2096, 351)
-scale = Vector2(0.0351562, 0.0442708)
-texture = ExtResource("2_yby5j")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="coin"]
-position = Vector2(387, 34.6667)
-shape = SubResource("CircleShape2D_d1shi")
-
-[node name="Sprite2D" type="Sprite2D" parent="coin/CollisionShape2D2"]
-
-[node name="Pixel-art-red-chinese-gold-coin-png" type="Sprite2D" parent="coin/CollisionShape2D2/Sprite2D"]
-top_level = true
-position = Vector2(1242, 250)
-scale = Vector2(0.0351562, 0.0442708)
-texture = ExtResource("2_yby5j")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="coin"]
-position = Vector2(825.667, 24)
-shape = SubResource("CircleShape2D_d1shi")
-
-[node name="Sprite2D" type="Sprite2D" parent="coin/CollisionShape2D5"]
-
-[node name="Pixel-art-red-chinese-gold-coin-png" type="Sprite2D" parent="coin/CollisionShape2D5/Sprite2D"]
-top_level = true
-position = Vector2(2555, 214)
-scale = Vector2(0.0351562, 0.0442708)
-texture = ExtResource("2_yby5j")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="coin"]
-position = Vector2(970.333, 11.3333)
-shape = SubResource("CircleShape2D_d1shi")
-
-[node name="Sprite2D" type="Sprite2D" parent="coin/CollisionShape2D6"]
-
-[node name="Pixel-art-red-chinese-gold-coin-png" type="Sprite2D" parent="coin/CollisionShape2D6/Sprite2D"]
-top_level = true
-position = Vector2(2998, 175)
-scale = Vector2(0.0351562, 0.0442708)
-texture = ExtResource("2_yby5j")
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_x0uow")
 volume_db = -20.144
@@ -385,9 +308,9 @@ action_mode = 0
 [node name="Health Bar" type="ProgressBar" parent="."]
 modulate = Color(0.0980392, 0.835294, 0.552941, 1)
 offset_left = -98.0
-offset_top = 288.0
+offset_top = 290.0
 offset_right = 58.0
-offset_bottom = 315.0
+offset_bottom = 317.0
 scale = Vector2(0.7, 0.7)
 value = 100.0
 show_percentage = false
@@ -399,7 +322,18 @@ position = Vector2(-81, 559)
 position = Vector2(38, -149)
 shape = SubResource("RectangleShape2D_yk88b")
 
-[connection signal="body_entered" from="coin" to="." method="_on_coin_body_entered"]
+[node name="ScoreLabelG2" type="Label" parent="."]
+offset_left = 603.0
+offset_top = -8.0
+offset_right = 893.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("8_rj3st")
+theme_override_font_sizes/font_size = 40
+text = "jvgvjgv"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_5uuii")
+
 [connection signal="button_down" from="Camera2D/CheckButton" to="." method="_on_check_button_button_down"]
 [connection signal="button_up" from="Camera2D/CheckButton" to="." method="_on_check_button_button_up"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

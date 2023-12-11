@@ -194,7 +194,6 @@ shape = SubResource("CircleShape2D_1islu")
 light_mask = 3
 visibility_layer = 3
 position = Vector2(120, 157)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_b8myl")
 
 [connection signal="body_entered" from="SnakeSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
