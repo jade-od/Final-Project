@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
-var gravity = 600
-var jumpheight = 350
+var gravity = 400
+var jumpheight = 500
 var speed = 400
 var health = 100
 var player_alive = true
+var score = 0
+
+
 
 var enemy_in_range = false
 @onready var cat_player = $AnimationPlayer
@@ -63,3 +66,9 @@ func _on_check_button_button_up():
 
 
 
+
+
+func _on_coin_body_entered(body):
+	score += 20
+	child.queue_free()
+	

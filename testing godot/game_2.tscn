@@ -1,14 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://c81j3gnyie81g"]
+[gd_scene load_steps=10 format=3 uid="uid://c81j3gnyie81g"]
 
 [ext_resource type="Script" path="res://game_2.gd" id="1_j5gko"]
 [ext_resource type="PackedScene" uid="uid://bjlgqj8oqmelf" path="res://game_2_player.tscn" id="2_jn4l4"]
 [ext_resource type="Texture2D" uid="uid://cf02hi27ls4j3" path="res://pictures /cats/Screenshot 2023-12-06 at 8.47.27 PM.png" id="3_x35vq"]
+[ext_resource type="Texture2D" uid="uid://d1bu4ewrodtpd" path="res://global/bricks.png" id="4_763si"]
 [ext_resource type="PackedScene" uid="uid://bbiyavdnm28js" path="res://g2enemy.tscn" id="4_mgaex"]
 [ext_resource type="Script" path="res://background.gd" id="5_4vhvy"]
 [ext_resource type="Texture2D" uid="uid://cq0tkbgatkqfa" path="res://pictures /cats/background.jpeg" id="6_eqhy4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahljo"]
-size = Vector2(4511.5, 29)
+size = Vector2(8418.75, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0mau"]
 size = Vector2(254.5, 56.5)
@@ -23,7 +24,7 @@ script = ExtResource("1_j5gko")
 position = Vector2(281, 426)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platforms"]
-position = Vector2(1958, 228)
+position = Vector2(3911.62, 228)
 shape = SubResource("RectangleShape2D_ahljo")
 
 [node name="Screenshot2023-12-06At8_47_27 pm" type="Sprite2D" parent="platforms/CollisionShape2D"]
@@ -37,20 +38,99 @@ scale = Vector2(4.00357, 0.0124999)
 texture = ExtResource("3_x35vq")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="platforms"]
-position = Vector2(493, -29)
+position = Vector2(488, -27)
 shape = SubResource("RectangleShape2D_i0mau")
 
+[node name="Bricks" type="Sprite2D" parent="platforms/CollisionShape2D2"]
+position = Vector2(439, -75)
+scale = Vector2(0.283333, 0.0688889)
+texture = ExtResource("4_763si")
+
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="platforms"]
+texture_filter = 1
 position = Vector2(927, -102)
 shape = SubResource("RectangleShape2D_i0mau")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="platforms"]
-position = Vector2(1334, -147)
+[node name="Bricks2" type="Sprite2D" parent="platforms/CollisionShape2D3"]
+position = Vector2(-440.5, 76)
+scale = Vector2(0.283333, 0.0666667)
+texture = ExtResource("4_763si")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="platforms"]
+texture_filter = 1
+position = Vector2(1350, -46)
 shape = SubResource("RectangleShape2D_i0mau")
+
+[node name="Bricks2" type="Sprite2D" parent="platforms/CollisionShape2D5"]
+position = Vector2(2.99997, 1)
+scale = Vector2(0.288889, 0.0622222)
+texture = ExtResource("4_763si")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="platforms"]
+position = Vector2(1820, -4)
+shape = SubResource("RectangleShape2D_i0mau")
+
+[node name="Bricks" type="Sprite2D" parent="platforms/CollisionShape2D4"]
+position = Vector2(3.05176e-05, 1.49998)
+scale = Vector2(0.286667, 0.0833333)
+texture = ExtResource("4_763si")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="platforms"]
+position = Vector2(2283, -131)
+shape = SubResource("RectangleShape2D_i0mau")
+
+[node name="Bricks" type="Sprite2D" parent="platforms/CollisionShape2D6"]
+position = Vector2(3.05176e-05, 1.49998)
+scale = Vector2(0.286667, 0.0833333)
+texture = ExtResource("4_763si")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="platforms"]
+position = Vector2(2716, -148)
+shape = SubResource("RectangleShape2D_i0mau")
+
+[node name="Bricks" type="Sprite2D" parent="platforms/CollisionShape2D7"]
+position = Vector2(-4, 0)
+scale = Vector2(0.286667, 0.0833333)
+texture = ExtResource("4_763si")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="platforms"]
+position = Vector2(3313, -206)
+shape = SubResource("RectangleShape2D_i0mau")
+
+[node name="Bricks" type="Sprite2D" parent="platforms/CollisionShape2D8"]
+position = Vector2(3.05176e-05, 1.49998)
+scale = Vector2(0.286667, 0.0833333)
+texture = ExtResource("4_763si")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="platforms"]
+position = Vector2(3811, -90)
+shape = SubResource("RectangleShape2D_i0mau")
+
+[node name="Bricks" type="Sprite2D" parent="platforms/CollisionShape2D9"]
+position = Vector2(3.05176e-05, 1.49998)
+scale = Vector2(0.286667, 0.0833333)
+texture = ExtResource("4_763si")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="platforms"]
+position = Vector2(4431, -51)
+shape = SubResource("RectangleShape2D_i0mau")
+
+[node name="Bricks" type="Sprite2D" parent="platforms/CollisionShape2D10"]
+position = Vector2(3, 1)
+scale = Vector2(0.286667, 0.0833333)
+texture = ExtResource("4_763si")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="platforms"]
+position = Vector2(4955, -72)
+shape = SubResource("RectangleShape2D_i0mau")
+
+[node name="Bricks" type="Sprite2D" parent="platforms/CollisionShape2D11"]
+position = Vector2(3, 1)
+scale = Vector2(0.286667, 0.0833333)
+texture = ExtResource("4_763si")
 
 [node name="SnakeEnemy" parent="." instance=ExtResource("4_mgaex")]
 scale = Vector2(0.977227, 1.05498)
-slide_on_ceiling = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("5_4vhvy")
@@ -67,6 +147,6 @@ texture_filter = 1
 [node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D"]
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(578, 331)
-scale = Vector2(0.896973, 0.9)
+position = Vector2(572, 328)
+scale = Vector2(0.896924, 0.905556)
 texture = ExtResource("6_eqhy4")
