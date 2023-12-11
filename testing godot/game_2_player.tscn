@@ -319,7 +319,7 @@ show_percentage = false
 position = Vector2(-81, 559)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(38, -149)
+position = Vector2(37, -161)
 shape = SubResource("RectangleShape2D_yk88b")
 
 [node name="ScoreLabelG2" type="Label" parent="."]

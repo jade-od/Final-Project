@@ -52,8 +52,9 @@ func enemy_attack():
 			
 func score_update():
 	pass
-			
+	
 
+	
 
 		
 func player():
@@ -69,3 +70,5 @@ func _on_check_button_button_up():
 	$AudioStreamPlayer.play()
 
 
+func _on_bottom_body_entered(body):
+	health = 0
