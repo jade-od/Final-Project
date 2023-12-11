@@ -3,4 +3,4 @@ extends Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.text = "Score: 0"
+	self.text = "Score:" + 

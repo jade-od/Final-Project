@@ -260,6 +260,7 @@ script = ExtResource("1_rg61k")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_x0uow")
 volume_db = -20.144
+stream_paused = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-42, 399)
@@ -302,7 +303,6 @@ offset_top = 143.0
 offset_right = 118.0
 offset_bottom = 167.0
 scale = Vector2(3, 3)
-button_pressed = true
 action_mode = 0
 
 [node name="Health Bar" type="ProgressBar" parent="."]
@@ -329,12 +329,12 @@ offset_right = 893.0
 offset_bottom = 100.0
 theme_override_fonts/font = ExtResource("8_rj3st")
 theme_override_font_sizes/font_size = 40
-text = "jvgvjgv"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("8_5uuii")
 
 [connection signal="button_down" from="Camera2D/CheckButton" to="." method="_on_check_button_button_down"]
 [connection signal="button_up" from="Camera2D/CheckButton" to="." method="_on_check_button_button_up"]
+[connection signal="pressed" from="Camera2D/CheckButton" to="." method="_on_check_button_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

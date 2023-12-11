@@ -29,16 +29,20 @@ func _process(_delta):
 	if Input.is_action_pressed("ui_left"):
 		sprites.play("walking")
 		sprites.flip_h = true
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_pressed("jump"):
 		sprites.play("run")
 func _ready():
 	bar =  get_node("ScoreLabelG2")
-	
 func _on_area_2d_body_entered(body):
 	if body.has_method("enemy"):
 		enemy_in_range = true
+		health = health - 10
+		var healthbar = $"Health Bar"
+		healthbar.value = health
 	if body.has_method("falling"):
 		falling = true
+	if body.has_method("coins"):
+		score+= 20
 
 func _on_area_2d_body_exited(body):
 	if body.has_method("enemy"):
@@ -47,11 +51,10 @@ func _on_area_2d_body_exited(body):
 func enemy_attack():
 	if enemy_in_range:
 		health = health - 10
-		var healthbar = $"Health Bar"
-		healthbar.value = health
 		if health <= 0:
 			Engine.time_scale = 0
 			get_tree().change_scene_to_file("res://respawn.tscn")
+			
 			
 func fellOffMap():
 	if falling:
@@ -66,12 +69,5 @@ func fellOffMap():
 func player():
 	pass
 
-
-func _on_check_button_button_down():
+func _on_check_button_pressed():
 	$AudioStreamPlayer.stop()
-	
-
-
-func _on_check_button_button_up():
-	$AudioStreamPlayer.play()
-
