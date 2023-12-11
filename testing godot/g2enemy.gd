@@ -1,25 +1,28 @@
 extends CharacterBody2D
-
-var speed = 25
+var gravity = 10000
+var speed = 100
 var player_chase = false
 var player = null
+@onready var snake_player = $SnakeSprite2D
 
-#func _physics_process(delta):
-'''if player_chase:
+func _physics_process(delta):
+
+	move_and_slide()
+	if player_chase:
 		position += (player.position - position)/speed
+		if Input.is_action_pressed("ui_right"):
+			snake_player.play("snakeIdle")
+			snake_player.flip_h = false
+		elif Input.is_action_pressed("ui_left"):
+			snake_player.play("snakeIdle")
+			snake_player.flip_h = true
+	
+func enemy():
+	pass
 		
-	if Input.is_action_pressed("ui_right"):
-		$snakeAnimator.flip_h = false
-		
-	else:
-		$snakeAnimator.flip_h = true'''
-
-
 func _on_area_2d_body_entered(body):
 	player = body
 	player_chase = true
-	
-
 
 
 func _on_area_2d_body_exited(body):
