@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://db62kattphriu"]
+
+[ext_resource type="Script" path="res://respawn.gd" id="1_rcuqk"]
+[ext_resource type="Texture2D" uid="uid://clju1qxnho6o6" path="res://pictures /bg/Screenshot 2023-11-27 at 10.49.55 AM.png" id="2_1h6yv"]
+[ext_resource type="Texture2D" uid="uid://dipjkwao5xlc7" path="res://pictures /cats/cats moving/greyCatSpriteSheetFinal_.png" id="3_m5yql"]
+[ext_resource type="FontFile" uid="uid://b074xph6ihn0x" path="res://assests (card faces)/font/Kenney Pixel Square.ttf" id="4_1aimr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6l64"]
+atlas = ExtResource("3_m5yql")
+region = Rect2(400, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_anfv3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6l64")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="respawn" type="Node2D"]
+script = ExtResource("1_rcuqk")
+
+[node name="Screenshot2023-11-27At10_49_55Am" type="Sprite2D" parent="."]
+position = Vector2(587, 328)
+scale = Vector2(0.485392, 0.55602)
+texture = ExtResource("2_1h6yv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(588, 319)
+scale = Vector2(5.31, 5.18)
+sprite_frames = SubResource("SpriteFrames_anfv3")
+
+[node name="Button" type="Button" parent="."]
+offset_top = -8.0
+offset_right = 1169.0
+offset_bottom = 158.0
+theme_override_fonts/font = ExtResource("4_1aimr")
+theme_override_font_sizes/font_size = 55
+text = "You Died!"
+
+[node name="home" type="Button" parent="."]
+offset_left = 839.0
+offset_top = 495.0
+offset_right = 1077.0
+offset_bottom = 595.0
+theme_override_fonts/font = ExtResource("4_1aimr")
+theme_override_font_sizes/font_size = 28
+text = "Home"
+
+[node name="restart" type="Button" parent="."]
+offset_left = 549.0
+offset_top = 496.0
+offset_right = 798.0
+offset_bottom = 599.0
+theme_override_fonts/font = ExtResource("4_1aimr")
+theme_override_font_sizes/font_size = 28
+text = "Respawn"
+
+[connection signal="pressed" from="home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]

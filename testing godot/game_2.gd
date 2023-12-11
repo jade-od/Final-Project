@@ -1,5 +1,4 @@
 extends Node2D
-
 @onready var pause_menu = $Game2Player/Camera2D/PauseMenuG2
 var paused = false
 
@@ -7,6 +6,7 @@ var paused = false
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
+	Engine.time_scale = 1
 		
 func pauseMenu():
 	if paused:
