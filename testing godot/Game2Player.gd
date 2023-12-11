@@ -9,6 +9,7 @@ var score = 0
 var bar
 
 var enemy_in_range = false
+var falling = false
 @onready var cat_player = $AnimationPlayer
 @onready var sprites = $AnimatedSprite2D
 
@@ -36,6 +37,8 @@ func _ready():
 func _on_area_2d_body_entered(body):
 	if body.has_method("enemy"):
 		enemy_in_range = true
+	if body.has_method("falling"):
+		falling = true
 
 func _on_area_2d_body_exited(body):
 	if body.has_method("enemy"):
@@ -50,8 +53,11 @@ func enemy_attack():
 			Engine.time_scale = 0
 			get_tree().change_scene_to_file("res://respawn.tscn")
 			
-func score_update():
-	pass
+func fellOffMap():
+	if falling:
+		health = 0
+		Engine.time_scale = 0
+		get_tree().change_scene_to_file("res://respawn.tscn")
 	
 
 	
@@ -69,6 +75,3 @@ func _on_check_button_button_down():
 func _on_check_button_button_up():
 	$AudioStreamPlayer.play()
 
-
-func _on_bottom_body_entered(body):
-	health = 0
