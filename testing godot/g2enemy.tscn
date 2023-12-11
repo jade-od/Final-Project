@@ -1,0 +1,108 @@
+[gd_scene load_steps=11 format=3 uid="uid://bbiyavdnm28js"]
+
+[ext_resource type="Texture2D" uid="uid://18ijef4dpevx" path="res://pictures /cats/snake.png" id="1_pfdg0"]
+[ext_resource type="Script" path="res://g2enemy.gd" id="1_pvqj3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3df0a"]
+atlas = ExtResource("1_pfdg0")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axf5y"]
+atlas = ExtResource("1_pfdg0")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wfoh2"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"snakeFRames",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3df0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axf5y")
+}],
+"loop": true,
+"name": &"snakeIdle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_4f8sf"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SnakeSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_ag30d"]
+resource_name = "snake idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SnakeSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k6u1q"]
+_data = {
+"RESET": SubResource("Animation_4f8sf"),
+"snake idle": SubResource("Animation_ag30d")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1islu"]
+radius = 91.9239
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8myl"]
+size = Vector2(100, 82)
+
+[node name="SnakeEnemy" type="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(667, 442)
+script = ExtResource("1_pvqj3")
+
+[node name="SnakeSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(114, 155)
+scale = Vector2(2.3, 2.32)
+sprite_frames = SubResource("SpriteFrames_wfoh2")
+animation = &"snakeIdle"
+
+[node name="snakeAnimator" type="AnimationPlayer" parent="."]
+autoplay = "snake idle"
+libraries = {
+"": SubResource("AnimationLibrary_k6u1q")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(3, 2)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(117, 120)
+shape = SubResource("CircleShape2D_1islu")
+
+[node name="hurt_shape" type="CollisionShape2D" parent="."]
+position = Vector2(124, 162)
+shape = SubResource("RectangleShape2D_b8myl")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
