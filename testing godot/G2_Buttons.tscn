@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1w5vg6in3lpr"]
+[gd_scene load_steps=2 format=3 uid="uid://d1w5vg6in3lpr"]
 
 [ext_resource type="Script" path="res://G2_Buttons.gd" id="1_k6t83"]
-[ext_resource type="Texture2D" uid="uid://dcfwmo0q8sbwb" path="res://pictures /bg/sound-on.png" id="2_8fryn"]
 
 [node name="PauseMenuG2" type="Control"]
 layout_mode = 3
@@ -36,17 +35,5 @@ layout_mode = 2
 text = "Quit Game"
 icon_alignment = 1
 
-[node name="Toggle Sound" type="TextureButton" parent="."]
-texture_filter = 1
-layout_mode = 0
-offset_left = 788.0
-offset_top = 207.0
-offset_right = 890.0
-offset_bottom = 299.0
-toggle_mode = true
-texture_normal = ExtResource("2_8fryn")
-ignore_texture_size = true
-
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Toggle Sound" to="." method="_on_toggle_sound_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c81j3gnyie81g"]
+[gd_scene load_steps=9 format=3 uid="uid://c81j3gnyie81g"]
 
 [ext_resource type="Script" path="res://game_2.gd" id="1_j5gko"]
 [ext_resource type="PackedScene" uid="uid://bjlgqj8oqmelf" path="res://game_2_player.tscn" id="2_jn4l4"]
@@ -8,27 +8,49 @@
 [ext_resource type="Texture2D" uid="uid://cq0tkbgatkqfa" path="res://pictures /cats/background.jpeg" id="6_eqhy4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahljo"]
-size = Vector2(2256, 39)
+size = Vector2(4511.5, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0mau"]
+size = Vector2(254.5, 56.5)
 
 [node name="Game 2" type="Node2D"]
-position = Vector2(3, -2)
+position = Vector2(22, 18)
 script = ExtResource("1_j5gko")
 
 [node name="Game2Player" parent="." instance=ExtResource("2_jn4l4")]
 
 [node name="platforms" type="StaticBody2D" parent="."]
-position = Vector2(296, 432)
+position = Vector2(281, 426)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platforms"]
-position = Vector2(832, 239.5)
+position = Vector2(1958, 228)
 shape = SubResource("RectangleShape2D_ahljo")
 
-[node name="Screenshot2023-12-06At8_47_27 pm" type="Sprite2D" parent="platforms"]
-position = Vector2(829, 234)
+[node name="Screenshot2023-12-06At8_47_27 pm" type="Sprite2D" parent="platforms/CollisionShape2D"]
+position = Vector2(-1038, 5)
 scale = Vector2(4.00357, 0.0124999)
 texture = ExtResource("3_x35vq")
 
+[node name="Screenshot2023-12-06At8_47_27 pm2" type="Sprite2D" parent="platforms/CollisionShape2D"]
+position = Vector2(876, 3)
+scale = Vector2(4.00357, 0.0124999)
+texture = ExtResource("3_x35vq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platforms"]
+position = Vector2(493, -29)
+shape = SubResource("RectangleShape2D_i0mau")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="platforms"]
+position = Vector2(927, -102)
+shape = SubResource("RectangleShape2D_i0mau")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="platforms"]
+position = Vector2(1334, -147)
+shape = SubResource("RectangleShape2D_i0mau")
+
 [node name="SnakeEnemy" parent="." instance=ExtResource("4_mgaex")]
+scale = Vector2(0.977227, 1.05498)
+slide_on_ceiling = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("5_4vhvy")
@@ -45,6 +67,6 @@ texture_filter = 1
 [node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D"]
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(578, 320)
+position = Vector2(578, 331)
 scale = Vector2(0.896973, 0.9)
 texture = ExtResource("6_eqhy4")

@@ -1,7 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://bjlgqj8oqmelf"]
+[gd_scene load_steps=23 format=3 uid="uid://bjlgqj8oqmelf"]
 
 [ext_resource type="Script" path="res://Game2Player.gd" id="1_rg61k"]
 [ext_resource type="Texture2D" uid="uid://dipjkwao5xlc7" path="res://pictures /cats/cats moving/greyCatSpriteSheetFinal_.png" id="2_7wuau"]
+[ext_resource type="AudioStream" uid="uid://chouxgbd0qhyx" path="res://pictures /cats/Sakura-Girl-Peach-chosic.com_.mp3" id="2_x0uow"]
+[ext_resource type="Texture2D" uid="uid://ywq3ppgkpth3" path="res://pictures /cats/pixil-frame-3 (1).png" id="3_eok0a"]
 [ext_resource type="PackedScene" uid="uid://d1w5vg6in3lpr" path="res://G2_Buttons.tscn" id="4_x6wul"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yk88b"]
@@ -82,13 +84,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_aa2d8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b514y")
+"texture": ExtResource("3_eok0a")
 }],
-"loop": true,
-"name": &"idle",
+"loop": false,
+"name": &"hissing",
 "speed": 5.0
 }, {
 "frames": [{
@@ -98,7 +97,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2a3f0")
 }],
-"loop": true,
+"loop": false,
 "name": &"run",
 "speed": 5.0
 }, {
@@ -106,7 +105,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aa2d8")
 }],
-"loop": true,
+"loop": false,
 "name": &"standing",
 "speed": 5.0
 }, {
@@ -130,18 +129,6 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_7hx4p"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
 [sub_resource type="Animation" id="Animation_tljqk"]
 resource_name = "jump"
@@ -203,29 +190,86 @@ tracks/2/keys = {
 "values": []
 }
 
+[sub_resource type="Animation" id="Animation_s2cmn"]
+resource_name = "hissing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:texture_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a4lrr"]
 _data = {
 "RESET": SubResource("Animation_7hx4p"),
+"hissing": SubResource("Animation_s2cmn"),
 "jump": SubResource("Animation_tljqk"),
 "run": SubResource("Animation_obe14"),
 "walking": SubResource("Animation_4lygn")
 }
 
 [node name="Game2Player" type="CharacterBody2D"]
-position = Vector2(179, 68)
+position = Vector2(179, 60)
 collision_layer = 3
 script = ExtResource("1_rg61k")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_x0uow")
+volume_db = -20.144
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-102, 63)
+position = Vector2(-42, 399)
 shape = SubResource("RectangleShape2D_yk88b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-93, 32)
+position = Vector2(-43, 381)
 scale = Vector2(3.78875, 3.66625)
 sprite_frames = SubResource("SpriteFrames_eu3g3")
-animation = &"idle"
+animation = &"run"
+autoplay = "standing"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimatedSprite2D")
@@ -234,7 +278,7 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(107, -146)
+position = Vector2(394, 254)
 
 [node name="PauseMenuG2" parent="Camera2D" instance=ExtResource("4_x6wul")]
 visible = false
@@ -248,22 +292,35 @@ offset_bottom = 380.0
 grow_horizontal = 1
 grow_vertical = 1
 
+[node name="CheckButton" type="CheckButton" parent="Camera2D"]
+modulate = Color(0, 0.886275, 0.368627, 1)
+top_level = true
+offset_left = 74.0
+offset_top = 73.0
+offset_right = 118.0
+offset_bottom = 97.0
+scale = Vector2(3, 3)
+button_pressed = true
+action_mode = 0
+
 [node name="Health Bar" type="ProgressBar" parent="."]
 modulate = Color(0.0980392, 0.835294, 0.552941, 1)
-offset_left = -154.0
-offset_top = -12.0
-offset_right = 1.99998
-offset_bottom = 15.0
+offset_left = -98.0
+offset_top = 288.0
+offset_right = 58.0
+offset_bottom = 315.0
 scale = Vector2(0.7, 0.7)
 value = 100.0
 show_percentage = false
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-88, 61)
+position = Vector2(-81, 559)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-14, 2)
+position = Vector2(38, -149)
 shape = SubResource("RectangleShape2D_yk88b")
 
+[connection signal="button_down" from="Camera2D/CheckButton" to="." method="_on_check_button_button_down"]
+[connection signal="button_up" from="Camera2D/CheckButton" to="." method="_on_check_button_button_up"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
