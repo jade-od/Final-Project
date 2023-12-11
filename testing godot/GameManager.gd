@@ -58,10 +58,7 @@ func chooseCard(c): #var c
 
 func checkCards():
 	if card1.value == card2.value:
-		card1.set_modulate(Color(0.6,0.6,0.6,0.5))
-		card2.set_modulate(Color(0.6,0.6,0.6,0.5))
-		card1 = null
-		card2 = null
+		matchTimer.start(1)
 	else:
 		flipTimer.start(1)
 
@@ -74,4 +71,7 @@ func turnOverCards():
 	card2 = null
 
 func matchCardsAndScore():
-	pass
+	card1.set_modulate(Color(0.6,0.6,0.6,0.5))
+	card2.set_modulate(Color(0.6,0.6,0.6,0.5))
+	card1 = null
+	card2 = null
