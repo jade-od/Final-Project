@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://42g0ttkmy6td"]
+[gd_scene load_steps=6 format=3 uid="uid://42g0ttkmy6td"]
 
 [ext_resource type="Script" path="res://game_1.gd" id="1_j4r0l"]
 [ext_resource type="Texture2D" uid="uid://clju1qxnho6o6" path="res://pictures /bg/Screenshot 2023-11-27 at 10.49.55 AM.png" id="2_vdv26"]
+[ext_resource type="FontFile" uid="uid://b074xph6ihn0x" path="res://assests (card faces)/font/Kenney Pixel Square.ttf" id="3_gfaqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_us3aw"]
 size = Vector2(12, 490.5)
@@ -22,6 +23,7 @@ offset_left = 192.0
 offset_top = 544.0
 offset_right = 369.0
 offset_bottom = 612.0
+theme_override_fonts/font = ExtResource("3_gfaqw")
 text = "Start Game"
 
 [node name="Leave" type="Button" parent="."]
@@ -29,6 +31,7 @@ offset_left = 784.0
 offset_top = 544.0
 offset_right = 961.0
 offset_bottom = 612.0
+theme_override_fonts/font = ExtResource("3_gfaqw")
 text = "Leave Game"
 
 [node name="Game" type="ColorRect" parent="."]
