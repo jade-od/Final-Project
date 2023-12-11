@@ -260,7 +260,6 @@ script = ExtResource("1_rg61k")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_x0uow")
 volume_db = -20.144
-stream_paused = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-42, 399)
