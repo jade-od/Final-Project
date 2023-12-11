@@ -106,6 +106,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.35
 
 [node name="ButtonPause" type="TextureButton" parent="Panel/Sections/SectionButtons"]
+process_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("2_wk1bm")
