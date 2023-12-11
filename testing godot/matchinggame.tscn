@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cl5sph01b4enx"]
+[gd_scene load_steps=5 format=3 uid="uid://cl5sph01b4enx"]
 
 [ext_resource type="Script" path="res://matchinggame.gd" id="1_7idct"]
 [ext_resource type="Texture2D" uid="uid://clju1qxnho6o6" path="res://pictures /bg/Screenshot 2023-11-27 at 10.49.55 AM.png" id="1_jhtmr"]
+[ext_resource type="PackedScene" uid="uid://dauabm6i7br2y" path="res://HUD.tscn" id="3_m5eoq"]
+[ext_resource type="FontFile" uid="uid://b074xph6ihn0x" path="res://assests (card faces)/font/Kenney Pixel Square.ttf" id="4_cc2kk"]
 
 [node name="matching" type="Control"]
 layout_mode = 3
@@ -32,3 +34,17 @@ offset_top = 16.0
 offset_right = 1136.0
 offset_bottom = 512.0
 columns = 13
+
+[node name="HUD" parent="." instance=ExtResource("3_m5eoq")]
+layout_mode = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 952.0
+offset_top = 528.0
+offset_right = 1136.0
+offset_bottom = 632.0
+theme_override_fonts/font = ExtResource("4_cc2kk")
+theme_override_font_sizes/font_size = 25
+text = "LEAVE
+GAME"
