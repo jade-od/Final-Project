@@ -16,11 +16,26 @@ var scoreLabel
 var timerLabel 
 var movesLabel
 
+var resetButton
+
 func _ready():
 	fillDeck()
 	dealDeck()
 	setupTimers()
 	setupHUD()
+	
+func resetGame():
+	for c in range(deck.size()):
+		deck[c].queue_free()
+	deck.clear()
+	score = 0
+	seconds = 0 
+	moves = 0 
+	scoreLabel.text = str(score)
+	timerLabel.text = str(seconds)
+	movesLabel.text = str(moves)
+	fillDeck()
+	dealDeck()
 	
 func setupHUD():
 	scoreLabel = Play.get_node('HUD/Panel/Sections/SectionScore/Score')
@@ -29,6 +44,8 @@ func setupHUD():
 	scoreLabel.text = str(score)
 	timerLabel.text = str(seconds)
 	movesLabel.text = str(moves)
+	resetButton = Play.get_node('HUD/Panel/Sections/SectionButtons/ButtonReset')
+	resetButton.pressed.connect(resetGame)
 	
 func setupTimers():
 	flipTimer.timeout.connect(turnOverCards)
@@ -59,7 +76,7 @@ func fillDeck():
 		s += 1
 	
 func dealDeck():
-	#deck.shuffle()
+	deck.shuffle()
 	var c = 0
 	while c < deck.size():
 		Play.get_node('grid').add_child(deck[c])
