@@ -2,15 +2,16 @@ extends CharacterBody2D
 
 var gravity = 500
 var jumpheight = 350
-var speed = 300
-
-@onready var cat_player = $AnimationPlayer
+var speed = 400
+var health = 100
+@onready var cat_player = $AnimatedSprite2D
 
 
 
 func _physics_process(delta):
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y -=jumpheight
+	
 		
 	velocity.y +=gravity *  delta
 func _process(_delta):
@@ -19,13 +20,14 @@ func _process(_delta):
 	move_and_slide() 
 	if Input.is_action_pressed("ui_right"):
 		cat_player.play("walking")
-	#if Input.is_action_just_released("ui_left"):
-		
 	else:
-		cat_player.stop()
+		cat_player.play("standing")
 		
-func respawn():
-	get_tree().reload_current_scene()
+func updateHealth():
+	var healthbar = $"Health Bar"
+	healthbar.value = health
+	
+	
 	
 	
 	
