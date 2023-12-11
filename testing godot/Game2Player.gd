@@ -51,7 +51,7 @@ func enemy_attack():
 			get_tree().change_scene_to_file("res://respawn.tscn")
 			
 func score_update():
-	
+	pass
 			
 
 
@@ -69,10 +69,3 @@ func _on_check_button_button_up():
 	$AudioStreamPlayer.play()
 
 
-	
-
-
-func _on_coin_body_entered(body):
-	get_parent().get_node("Collectibles").queue_free()
-	score += 20
-	bar.text = ('score' )

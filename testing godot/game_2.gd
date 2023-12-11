@@ -18,4 +18,3 @@ func pauseMenu():
 	
 	paused = !paused
 
-
