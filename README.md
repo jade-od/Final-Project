@@ -1,6 +1,9 @@
 # Proposal
 Final project proposal
 
+Include anything else you want to say, such as the difficulties you faced or overcame, the things you learned, what you enjoyed, etc, in a readme file.
+    - Inorder to run the memory game you have to control K the contents in the Game Manager script. For the rest of the game to run you have to control K the Game Manager script to hashtag it all out. Some difficulties we overcame were figuring out how to work together on a Godot interface. Using videos from Godot 2 and 3 was a challenge seeing as they changed small details of the Godot interface. 
+
 Youtube Video: https://youtu.be/8dfZHXltzM4?feature=shared
 
 References: 
