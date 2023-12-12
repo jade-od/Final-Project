@@ -14,6 +14,7 @@ Memory Game Videos:
 Assest Packs: 
     1. https://www.kenney.nl/assets/playing-cards-pack
     2. https://www.dropbox.com/s/guxuo3izcmn9vaa/memory-assets.zip?dl=0
+    3. https://kenney.nl/assets/kenney-fonts
 
 Background Picture: 
     1. https://www.deviantart.com/neko-kumicho-chan/art/Cibodas-garden-pixel-scenery-835242298
